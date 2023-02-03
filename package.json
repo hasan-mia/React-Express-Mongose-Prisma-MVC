@@ -1,0 +1,36 @@
+{
+  "name": "react-express-mongoose-mvc",
+  "version": "1.0.0",
+  "description": "mvc pattern project with express node mongoose and react",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/js",
+    "stop-win": "Taskkill /IM node.exe /F",
+    "stop-linux": "killall node",
+    "herou-postbuild": "YARN_PRODUCTION=false yarn install --prefix views && yarn run build --prefix views",
+    "postinstall": "cd ./views && yarn"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.20",
+    "require-stack": "^1.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.32.0",
+    "eslint-plugin-react": "^7.32.1"
+  }
+}
