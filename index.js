@@ -8,7 +8,6 @@ const morgan = require('morgan')
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', false)
 const authRoute = require("./routes/api/v1/auth.route")
-const userRoute = require("./routes/api/v1/user.route")
 
 // Middleware
 app.use(cors())
@@ -40,9 +39,7 @@ dbConnect()
 // ===================================//
 //        SERVER / API ROUTES         //
 //====================================//
-// apiRoute()
 app.use('/api/v1/auth', authRoute)  // authentication route
-app.use('/api/v1/user', userRoute)  // user route
 
 
 // ===================================//
