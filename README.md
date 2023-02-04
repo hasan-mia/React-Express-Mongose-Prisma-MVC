@@ -2,6 +2,7 @@
 REMVC is a react express mongose MVC Pattern Project. Where you can start your project with just one command.This is the opensource project.So, fork & give star the project. you can also contribute this project for better perfomance and more easier to develpoed a mern project.
 
 ### Folder Stracture
+<code>
 __index
 __config
 ______connection.js (mongoose connection  method)
@@ -38,6 +39,7 @@ _______________auth.jsx (fetch auth routes)
 ____________Slice (all slice will write here for dispatch data)
 ____________Store (all fetching data will store here)
 __.env.example (rename this to .env and update your credentials both server and client site)
+</code>
 
 #### Uses tools for server / rest api
 ##### bcrypt
@@ -59,9 +61,9 @@ __.env.example (rename this to .env and update your credentials both server and 
 ##### tailwind
 
 ### ENV Setup and change value
-NODE_ENV=development
+NODE_ENV=development / production
 DATABASE_URL=mongodb+srv://database:password@cluster0.ngw4z7m.mongodb.net/?retryWrites=true&w=majority
-ACCESS_TOKEN_SECRET="YmAb0fJLyOVdX5jWL4rRJc3CN41ZA1b/J8QRYaTGC4C/yR34b7lTEQDmlZKVJEO1gnHbV=="
+ACCESS_TOKEN_SECRET=YmAb0fJLyOVdX5jWL4rRJc3Cb/J8QRYaTGC4C/yR34b7lTEQDmlZKVJEO1gnHbV==
 
 ### Generate secret totken
 openssl rand -base64 128
@@ -142,12 +144,10 @@ Response:
   "message": "login success",
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2RkMzlhYzFiNjQ3NjYxZWNmYTIyNWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE2NzU1MDU1NTR9.FlGkO2Hk2NEQJdO9sa1FyHSS07z0dgTbIT8s7kXwBCQ"
 }
-
 </code>
 
-### user info by id
+### Userinfo by id
 #### http://localhost:5000/api/v1/auth/user/63dd39ac1b647661ecfa225a
-
 <code>
 Method: GET
 body:
@@ -172,5 +172,4 @@ Response:
     "__v": 0
   }
 }
-
 </code>
