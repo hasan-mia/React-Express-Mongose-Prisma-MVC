@@ -1,26 +1,26 @@
-## REMVC Pattern with REACT, EXPRESS and MONGOSE
+## REMVC -MVC Pattern with REACT, EXPRESS and MONGOSE
 REMVC is a react express mongose MVC Pattern Project. Where you can start your project with just one command.This is the opensource project.So, fork & give star the project. you can also contribute this project for better perfomance and more easier to develpoed a mern project.
 
 ### Folder Stracture
 <code>
-__index
+__index.js (server index file)
 __config
 ______connection.js (mongoose connection  method)
-__controllers
+__controllers ( write your all rest api controller here)
 ______AuthController.js (user register, login and get userinfo api)
-__middleware
+__middleware ( write your all rest api middleware here)
 ______verifyJWT (middleware for login authentication)
 ______limiter
-__models
+__models ( write your database model here)
 _____User.js (user database model)
-__public
+__public (all common css/js or media file upload here)
 ______index.html
 ______404.html
-__routes
+__routes (write all indivisual route in this folder)
 ________api
 __________v1
 ____________auth.route.js
-__views
+__views (manage your client site from here)
 ______public
 ______src
 _________app.js
@@ -37,6 +37,8 @@ _______________config.jsx (basic header and client env settings)
 _______________url.jsx (all api routes/ link)
 _______________auth.jsx (fetch auth routes)
 ____________Slice (all slice will write here for dispatch data)
+_______________AuthSlice.jsx (authentication slice)
+_______________CartSlice.jsx (full local storage base Cart)
 ____________Store (all fetching data will store here)
 __.env.example (rename this to .env and update your credentials both server and client site)
 </code>

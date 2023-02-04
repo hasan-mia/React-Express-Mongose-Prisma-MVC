@@ -18,7 +18,7 @@ app.use(helmet())
 app.use(express.static("public"))
 
 // Port
-const port = process.env.PORT || 6000 || 5000 || 9000
+const port = process.env.PORT || 5000 || 6000 || 9000
 
 // ===================================//
 //      Connect TO MONGOODB           //
