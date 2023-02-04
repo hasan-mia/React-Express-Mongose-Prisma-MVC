@@ -1,4 +1,6 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
+const jwt = require("jsonwebtoken"); 
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
 
@@ -37,9 +39,16 @@ const loginUser = async (req, res) => {
     
         // check valid password from hash
         const valiPassword = await bcrypt.compare(req.body.password, user.password);
-        !valiPassword && res.status(400).send({ success: false, error: "wrong password!" });
+        if (valiPassword) {   
+            // sign token and send it in response
+            const token = await jwt.sign({ userId: user._id, username: user.username, email: user.email, isAdmin: user.isAdmin }, process.env.ACCESS_TOKEN_SECRET);
+            res.status(200).send({ success: true, message: "login success", token: token });
+            console.log(token);
+            
+        }else{
+            res.status(400).send({ success: false, error: "wrong password!" });
+        }
         
-        res.status(200).send({ success: true, message: "login success", username: user.username });
     }
     catch (error) {
        return res.status(500).send(error);

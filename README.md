@@ -25,6 +25,7 @@ REMVC is a react express mongose MVC Pattern Project. Where you can start your p
 ###### _________app.js
 ###### _________index.js
 ###### _________index.css
+###### _________auth
 ###### _________backend
 ###### _________frontend
 ###### _________layout
@@ -130,7 +131,7 @@ Response:
 {
   "success": true,
   "message": "login success",
-  "username": "example"
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2RkMzlhYzFiNjQ3NjYxZWNmYTIyNWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE2NzU1MDU1NTR9.FlGkO2Hk2NEQJdO9sa1FyHSS07z0dgTbIT8s7kXwBCQ"
 }
 
 ### user info by id

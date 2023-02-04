@@ -7,7 +7,7 @@
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false,
-    "editor.defaultFormatter": null
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
   },
   "[javascriptreact]": {
     "editor.formatOnSave": false,
