@@ -1,12 +1,11 @@
 const config = {};
 config.baseUrl = process.env.REACT_APP_BASE_URL;
-config.appKey = process.env.REACT_APP_AUTH_KEY;
-config.secretKey = process.env.REACT_APP_SECRET_KEY;
+config.authorization = process.env.REACT_APP_AUTH_KEY;
 
 config.basicHeader = {
     headers: {
         'Content-Type': 'application/json',
-        appkey: config.appKey,
+        authorization: config.authorization,
     },
 };
 config.paramsWithHeader = (param) => {
@@ -14,7 +13,7 @@ config.paramsWithHeader = (param) => {
         params: param,
         headers: {
             'Content-Type': 'application/json',
-            appkey: config.appKey,
+            authorization: config.authorization,
         },
     };
     return params;
@@ -23,7 +22,7 @@ config.authHeader = (token) => {
     const header = {
         headers: {
             'Content-Type': 'application/json',
-            appkey: config.appKey,
+            authorization: config.authorization,
             token,
         },
     };

@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
 
@@ -17,13 +17,13 @@ const registerUser = async (req, res) => {
             password: hashPassword
         });
 
-        !newUser && res.status(400).send({ status: false, error: "Something went wrong!" });
+        !newUser && res.status(400).send({ success: false, error: "Something went wrong!" });
 
         await newUser.save();
         res.status(200).send({ success: true, message: `Register successfully`, user: newUser });
     } 
     catch (error) {
-        next(res.status(500).send(error));
+        return res.status(500).send(error);
     }
     
 };
@@ -33,17 +33,28 @@ const loginUser = async (req, res) => {
     try {  
         // get user mail/username
         const user = await User.findOne({$or: [{email: req.body.email}, {username: req.body.username}]})
-        !user && res.status(400).send({ status: false, error: "wrong email or uername!" });
+        !user && res.status(400).send({ success: false, error: "wrong email or uername!" });
     
         // check valid password from hash
         const valiPassword = await bcrypt.compare(req.body.password, user.password);
-        !valiPassword && res.status(400).send({ status: false, error: "wrong password!" });
+        !valiPassword && res.status(400).send({ success: false, error: "wrong password!" });
         
-        res.status(200).send({ success: true, message: "login success", data: user });
+        res.status(200).send({ success: true, message: "login success", username: user.username });
     }
     catch (error) {
-        next(res.status(500).send(error));
+       return res.status(500).send(error);
     }   
 };
 
-module.exports= {registerUser, loginUser}
+// ========Get User info============
+const singleUser = async (req, res) => {
+    try{
+        const user = await User.findById(req.params.id)
+        const {password, updatedAt, ...others} = user._doc
+         res.status(200).send({ success: true, message: `user found successfully`, data: others})
+     } catch(error){
+         return res.status(500).send(error)
+     }
+}
+
+module.exports= {registerUser, loginUser, singleUser}

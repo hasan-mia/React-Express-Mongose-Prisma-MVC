@@ -4,13 +4,17 @@ import CartSlice from './Slice/CartSlice';
 
 const Store = configureStore({
     reducer: {
-        cart: CartSlice,
         auth: AuthSlice,
+        cart: CartSlice,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: {
-                ignoredActions: ['auth/authConfirm/fulfilled', 'auth/userInfo/fulfilled'],
+                ignoredActions: [
+                    'auth/authRegister/fulfilled',
+                    'auth/authLogin/fulfilled',
+                    'auth/userInfo/fulfilled',
+                ],
             },
         }),
 });

@@ -4,28 +4,33 @@ REMVC is a react express mongose MVC Pattern Project. Where you can start your p
 ### Folder Stracture
 ###### index
 ###### config
-######     -connection.js
+###### ______connection.js
 ###### controllers
-######     -AuthController.js
+###### ______AuthController.js
 ###### middleware
-######     -verifyJWT
-######     -limiter
+###### ______verifyJWT
+###### ______limiter
 ###### models
-######     -User.js
+###### _____User.js
 ###### public
-######     -index.html
-######     -404.html
+###### ______index.html
+###### ______404.html
 ###### routes
-######     -api
-######         -v1
-######             -auth.route.js
+###### ________api
+###### ___________v1
+###### _______________auth.route.js
 ###### views
-######     -public
-######     -src
-######         -app.js
-######         -index.css
-######         -index.js
-###### env
+###### ______public
+###### ______src
+###### _________app.js
+###### _________index.js
+###### _________index.css
+###### _________backend
+###### _________frontend
+###### _________layout
+###### _________routes
+###### _________store
+###### .env
 
 #### Uses tools for server / rest api
 ##### bcrypt
@@ -125,19 +130,31 @@ Response:
 {
   "success": true,
   "message": "login success",
+  "username": "example"
+}
+
+### user info by id
+http://localhost:5000/api/v1/auth/user/63dd39ac1b647661ecfa225a
+
+body:
+{
+  "userId": "63dd39ac1b647661ecfa225a"
+}
+
+Response:
+{
+  "success": true,
+  "message": "user found successfully",
   "data": {
     "_id": "63dd39ac1b647661ecfa225a",
-    "username": "admin",
-    "email": "admin@admin.com",
-    "password": "$2b$10$gWTnSx344U0OHNekYWte8sGYeet7vUAvQMzf9MYaYGJGJmXKIITbdAD.",
+    "username": "example",
+    "email": "example@example.com",
     "profilePicture": "",
     "coverPicture": "",
     "followers": [],
     "followings": [],
     "isAdmin": false,
     "createdAt": "2023-02-03T16:43:24.460Z",
-    "updatedAt": "2023-02-03T16:43:24.460Z",
     "__v": 0
   }
 }
-

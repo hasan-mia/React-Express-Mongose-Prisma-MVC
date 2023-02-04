@@ -17,5 +17,12 @@ router.route("/register").post(limiter, AuthController.registerUser)
   */ 
  router.route("/login").post(limiter, AuthController.loginUser)
 
+ /**
+   * @api {get} /get a user
+   * @apiDescription get single user credentials
+   * @apiPermission anyone
+  */ 
+ router.route("/user/:id").get(limiter, AuthController.singleUser)
+
 
 module.exports = router
