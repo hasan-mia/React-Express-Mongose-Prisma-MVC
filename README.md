@@ -2,36 +2,42 @@
 REMVC is a react express mongose MVC Pattern Project. Where you can start your project with just one command.This is the opensource project.So, fork & give star the project. you can also contribute this project for better perfomance and more easier to develpoed a mern project.
 
 ### Folder Stracture
-###### index
-###### config
-###### ______connection.js
-###### controllers
-###### ______AuthController.js
-###### middleware
-###### ______verifyJWT
-###### ______limiter
-###### models
-###### _____User.js
-###### public
-###### ______index.html
-###### ______404.html
-###### routes
-###### ________api
-###### ___________v1
-###### _______________auth.route.js
-###### views
-###### ______public
-###### ______src
-###### _________app.js
-###### _________index.js
-###### _________index.css
-###### _________auth
-###### _________backend
-###### _________frontend
-###### _________layout
-###### _________routes
-###### _________store
-###### .env
+__index
+__config
+______connection.js (mongoose connection  method)
+__controllers
+______AuthController.js (user register, login and get userinfo api)
+__middleware
+______verifyJWT (middleware for login authentication)
+______limiter
+__models
+_____User.js (user database model)
+__public
+______index.html
+______404.html
+__routes
+________api
+__________v1
+____________auth.route.js
+__views
+______public
+______src
+_________app.js
+_________index.js
+_________index.css
+_________auth (basic login and registratioin form)
+_________backend (admin dashboard)
+_________frontend (frontend site)
+_________layout (frontend and admin layout)
+_________routes (frontend and admin routes)
+_________store (redux state management)
+____________api (setup rest api link and fetching data to getting response)
+_______________config.jsx (basic header and client env settings)
+_______________url.jsx (all api routes/ link)
+_______________auth.jsx (fetch auth routes)
+____________Slice (all slice will write here for dispatch data)
+____________Store (all fetching data will store here)
+__.env.example (rename this to .env and update your credentials both server and client site)
 
 #### Uses tools for server / rest api
 ##### bcrypt
@@ -53,9 +59,9 @@ REMVC is a react express mongose MVC Pattern Project. Where you can start your p
 ##### tailwind
 
 ### ENV Setup and change value
-#### NODE_ENV=development
-#### DATABASE_URL=mongodb+srv://database:password@cluster0.ngw4z7m.mongodb.net/?retryWrites=true&w=majority
-#### ACCESS_TOKEN_SECRET="YmAb0fJLyOVdX5jWL4rRJc3CN41ZA1b/J8QRYaTGC4C/yR34b7lTEQDmlZKVJEO1gnHbV=="
+NODE_ENV=development
+DATABASE_URL=mongodb+srv://database:password@cluster0.ngw4z7m.mongodb.net/?retryWrites=true&w=majority
+ACCESS_TOKEN_SECRET="YmAb0fJLyOVdX5jWL4rRJc3CN41ZA1b/J8QRYaTGC4C/yR34b7lTEQDmlZKVJEO1gnHbV=="
 
 ### Generate secret totken
 openssl rand -base64 128
@@ -85,7 +91,8 @@ npm run build
 ### Authentication API reference
 
 #### Register a new User 
-http://localhost:5000/api/v1/auth/register
+##### http://localhost:5000/api/v1/auth/register
+<code>
 Method: POST
 Body: 
 {
@@ -112,9 +119,11 @@ Response:
     "__v": 0
   }
 }
+</code>
 
 ### Login User 
-http://localhost:5000/api/v1/auth/login
+#### http://localhost:5000/api/v1/auth/login
+<code>
 Method: POST
 Body: 
 {
@@ -134,9 +143,13 @@ Response:
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2RkMzlhYzFiNjQ3NjYxZWNmYTIyNWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE2NzU1MDU1NTR9.FlGkO2Hk2NEQJdO9sa1FyHSS07z0dgTbIT8s7kXwBCQ"
 }
 
-### user info by id
-http://localhost:5000/api/v1/auth/user/63dd39ac1b647661ecfa225a
+</code>
 
+### user info by id
+#### http://localhost:5000/api/v1/auth/user/63dd39ac1b647661ecfa225a
+
+<code>
+Method: GET
 body:
 {
   "userId": "63dd39ac1b647661ecfa225a"
@@ -159,3 +172,5 @@ Response:
     "__v": 0
   }
 }
+
+</code>
