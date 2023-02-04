@@ -1,6 +1,10 @@
 ## REMVC -MVC Pattern with REACT, EXPRESS and MONGOSE
 REMVC is a react express mongose MVC Pattern Project. Where you can start your project with just one command.This is the opensource project.So, fork & give star the project. you can also contribute this project for better perfomance and more easier to develpoed a mern project.
 
+## Install REMVC
+
+npm i remvc
+
 ### Folder Stracture
 <code>
 __index.js (server index file)

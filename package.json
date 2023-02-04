@@ -1,5 +1,5 @@
 {
-  "name": "react-express-mongoose-mvc",
+  "name": "remvc",
   "version": "1.0.0",
   "description": "mvc pattern project with express node mongoose and react",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "postinstall": "cd ./views && yarn"
   },
   "keywords": [],
-  "author": "",
+  "author": "Hasan Mia",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -32,5 +32,13 @@
   "devDependencies": {
     "eslint": "^8.32.0",
     "eslint-plugin-react": "^7.32.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hasan-mia/React-Express-Mongose-MVC.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hasan-mia/React-Express-Mongose-MVC/issues"
+  },
+  "homepage": "https://github.com/hasan-mia/React-Express-Mongose-MVC#readme"
 }
