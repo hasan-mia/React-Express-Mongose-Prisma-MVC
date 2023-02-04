@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-require("dotenv").config() // load .env variables
-const mongoose = require("mongoose") //import fresh mongoose object
+require("dotenv").config()
+const mongoose = require("mongoose") 
 mongoose.set('strictQuery', false)
 
 const dbUrl = process.env.DATABASE_URL;

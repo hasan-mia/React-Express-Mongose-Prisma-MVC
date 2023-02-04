@@ -7,6 +7,7 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 mongoose.set('strictQuery', false)
+const dbConnect = require("./config/connection")
 const authRoute = require("./routes/api/v1/auth.route")
 
 // Middleware
@@ -17,22 +18,11 @@ app.use(helmet())
 app.use(express.static("public"))
 
 // Port
-const port = process.env.PORT || 5000 || 6000 || 9000
+const port = process.env.PORT || 6000 || 5000 || 9000
 
 // ===================================//
 //      Connect TO MONGOODB           //
 //====================================//
-const dbUrl = process.env.DATABASE_URL;
-const dbConnect = async () => {
- try {
-  await mongoose.connect(dbUrl, () => {
-    console.log("Connect to MongoDB");
-  })
- } catch (error) {
-  console.log(error)
- }
-  return dbConnect();
-}
 dbConnect()
 
 
@@ -56,7 +46,7 @@ if (process.env.NODE_ENV == 'production') {
 if (process.env.NODE_ENV == 'development') {
   app.use(express.static('views'));
   const path = require("path");
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
       res.sendFile(path.resolve(__dirname, 'views', 'src', 'index.js'));
   });
 }
