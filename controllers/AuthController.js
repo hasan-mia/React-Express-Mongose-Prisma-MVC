@@ -1,33 +1,34 @@
 /* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 const jwt = require("jsonwebtoken"); 
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
 
 // ========Register a New User============
 const registerUser = async (req, res) => {
-
-    try {  
-        // generate hash password
-        const salt = await bcrypt.genSalt(10)
-        const hashPassword = await bcrypt.hash(req.body.password, salt);
-
-        // create new user
-        const newUser = await new User({
-            username: req.body.username,
-            email: req.body.email,
-            password: hashPassword
-        });
-
-        !newUser && res.status(400).send({ success: false, error: "Something went wrong!" });
-
-        await newUser.save();
-        res.status(200).send({ success: true, message: `Register successfully`, user: newUser });
-    } 
-    catch (error) {
-        return res.status(500).send(error);
+    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validEmail =  emailRegEx.test(req.body.email)
+    const checkEmail = await User.findOne({email: req.body.email});
+    if (!validEmail) {
+        res.status(400).send({ success: false, error: "email is invalid!" });
+    }else if(checkEmail){
+        res.status(409).send({success: false, error: "email already used"})
+    }else{
+        try {
+            // generate hash password
+            const salt = await bcrypt.genSalt(10)
+            const hashPassword = await bcrypt.hash(req.body.password, salt);
+            // create new user
+            const newUser = await new User({
+                email: req.body.email,
+                password: hashPassword
+            });
+            await newUser.save();
+            res.status(201).send({ success: true, message: `Register successfully`, user: newUser });
+        }
+        catch (error) {
+            return res.status(500).send(error);
+        }
     }
-    
 };
 
 // ========Login a User============
@@ -55,15 +56,4 @@ const loginUser = async (req, res) => {
     }   
 };
 
-// ========Get User info============
-const singleUser = async (req, res) => {
-    try{
-        const user = await User.findById(req.params.id)
-        const {password, updatedAt, ...others} = user._doc
-         res.status(200).send({ success: true, message: `user found successfully`, data: others})
-     } catch(error){
-         return res.status(500).send(error)
-     }
-}
-
-module.exports= {registerUser, loginUser, singleUser}
+module.exports= {registerUser, loginUser}
