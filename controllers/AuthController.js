@@ -33,6 +33,14 @@ const registerUser = async (req, res) => {
 
 // ========Login a User============
 const loginUser = async (req, res) => {
+    const emailRegEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const validEmail =  emailRegEx.test(req.body.email)
+    const checkEmail = await User.findOne({email: req.body.email});
+    if (!validEmail) {
+        res.status(400).send({ success: false, error: "email is invalid!" });
+    }else if(!checkEmail){
+        res.status(409).send({success: false, error: "create a new account"})
+    }else{
     try {  
         // get user mail/username
         const user = await User.findOne({$or: [{email: req.body.email}, {username: req.body.username}]})
@@ -44,7 +52,6 @@ const loginUser = async (req, res) => {
             // sign token and send it in response
             const token = await jwt.sign({ userId: user._id, username: user.username, email: user.email, isAdmin: user.isAdmin }, process.env.ACCESS_TOKEN_SECRET);
             res.status(200).send({ success: true, message: "login success", token: token });
-            console.log(token);
             
         }else{
             res.status(400).send({ success: false, error: "wrong password!" });
@@ -53,7 +60,8 @@ const loginUser = async (req, res) => {
     }
     catch (error) {
        return res.status(500).send(error);
-    }   
+    } 
+ }  
 };
 
 module.exports= {registerUser, loginUser}
