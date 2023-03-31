@@ -1,10 +1,10 @@
 /* eslint-disable no-undef */
-require("dotenv").config()
-const mongoose = require("mongoose") 
+require("dotenv").config() // load .env variables
+const mongoose = require("mongoose") //import fresh mongoose object
 mongoose.set('strictQuery', false)
 
 const dbUrl = process.env.DATABASE_URL;
-const dbConnect = async () => {
+const connection = async () => {
  try {
   await mongoose.connect(dbUrl, () => {
     console.log("Connect to MongoDB");
@@ -12,6 +12,6 @@ const dbConnect = async () => {
  } catch (error) {
   console.log(error)
  }
-  return dbConnect();
+  return connection();
 }
-module.exports = dbConnect
+module.exports = connection
