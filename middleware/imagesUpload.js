@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
   },
 });
 
-// upload video middleware
+// upload image middleware
 const imagesUpload = multer({
   storage: storage,
   limits: {
