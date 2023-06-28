@@ -2,24 +2,36 @@
 REMVC is a react express mongose MVC Pattern Project. Where you can start your project with just one command.This is the opensource project.So, fork & give star the project. you can also contribute this project for better perfomance and more easier to develpoed a MERN project.
 
 ### Folder Stracture
-<code>
+
+```bash
 __index.js (server index file)
 __config
-______connection.js (mongoose connection  method)
-__controllers ( write your all rest api controller here)
-______AuthController.js (user register, login and get userinfo api)
-______UserController.js (get, update, delete, follow, unfollow and all userInfo for userControll)
-______PostStatusController.js (publish, update, delete, get post as text post, image and video api)
-______ProductController.js (publish, update, delete, get post as product post with multiple image)
-__middleware ( write your all rest api middleware here)
-______imageUpload (middleware for image upload)
-______videoUpload (middleware for image upload)
-______verifyJWT (middleware for login authentication)
-______limiter
-__models ( write your database model here)
-_____Post.js (all post with type base database model)
-_____User.js (user database model)
-_____Message.js (live chat database model for socketIO)
+______mongoDbonnect.js (mongoose connection  method)
+______mysqlDbonnect.js (normal mysql connection  method)
+__prisma
+______schema.prisma (prisma setup)
+_app
+______controllers ( write your all rest api controller here)
+_______AuthController.js (user register, login and get userinfo api)
+_______UserController.js (get, update, delete, follow, unfollow and all userInfo for userControll)
+_______PostStatusController.js (publish, update, delete, get post as text post, image and video api)
+_______ProductController.js (publish, update, delete, get post as product post with multiple image)
+_____middleware ( write your all rest api middleware here)
+_______imageUpload (middleware for image upload)
+_______videoUpload (middleware for image upload)
+_______verifyJWT (middleware for login authentication)
+_______limiter
+_____models ( write your database model here)
+______Post.js (all post with type base database model)
+______User.js (user database model)
+______Message.js (live chat database model for socketIO)
+_____Services ( write extra service)
+______Logger.js (all post with type base database model)
+______Prisma.js (setup prisma)
+______Socket.js (socketio server )
+______Token.js (token validation )
+_____Validatiors (error validatiors)
+______Request.js (all post with type base database model)
 __public (all common css/js or media file upload here)
 ______index.html
 ______404.html
@@ -48,7 +60,8 @@ _______________AuthSlice.jsx (authentication slice)
 _______________CartSlice.jsx (full local storage base Cart)
 ____________Store (all fetching data will store here)
 __.env.example (rename this to .env and update your credentials both server and client site)
-</code>
+
+```
 
 #### Uses tools for server / rest api
 ##### bcrypt
@@ -83,29 +96,42 @@ DATABASE_URL=mongodb+srv://dbname:password@cluster0.ngw4z7m.mongodb.net/?retryWr
 ACCESS_TOKEN_SECRET=YmAb0fJLyOVdX5jWZDWGZ6+2r/feExwbbLmd7EUnpV/CBKbupVApVCw=
 
 ### Generate secret totken
+```bash
 openssl rand -base64 128
+```
 
 ### Install Dependencies
+
+```bash
 yarn 
 or
 npm install
+```
 
 ### Serve with at http://localhost:5000
+
+```bash
 yarn server
 or
 npm run server
+```
 
 ### Client with at http://localhost:3000
-cd views (To go views directory and run)
 
+```bash
+cd views (To go views directory and run)
 yarn start
 or
 npm start
+```
 
 ### build for production with minification
+
+```bash
 yarn build
 or
 npm run build
+```
 
 ### ALL API ROUTE 
 
@@ -150,7 +176,8 @@ npm run build
 
 #### Register a new User 
 ##### http://localhost:5000/api/v1/auth/register
-<code>
+
+```bash
 Method: POST
 Body: 
 {
@@ -200,11 +227,12 @@ Response:
   "message": "login success",
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2RkMzlhYzFiNjQ3NjYxZWNmYTIyNWEiLCJ1c2VybmFtZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJpYXQiOjE2NzU1MDU1NTR9.FlGkO2Hk2NEQJdO9sa1FyHSS07z0dgTbIT8s7kXwBCQ"
 }
-</code>
+```
 
 ### Userinfo by id
 #### http://localhost:5000/api/v1/auth/user/63dd39ac1b647661ecfa225a
-<code>
+
+```bash
 Method: GET
 body:
 {
@@ -226,6 +254,5 @@ Response:
     "isAdmin": false,
     "createdAt": "2023-02-03T16:43:24.460Z",
     "__v": 0
-  }
 }
-</code>
+```
