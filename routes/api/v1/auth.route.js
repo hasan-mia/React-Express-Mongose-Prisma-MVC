@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const AuthController = require("../../../controllers/AuthController");
-const limiter = require("../../../middleware/limiter");
+const AuthController = require("../../../app/controllers/AuthController");
+const limiter = require("../../../app/middleware/limiter");
 
 /**
   * @api {post} /users save a user

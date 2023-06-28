@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const verifyJWT = require("../../../middleware/verifyJWT");
-const UserController = require("../../../controllers/UserController");
-const limiter = require("../../../middleware/limiter");
+const verifyJWT = require("../../../app/middleware/verifyJWT");
+const UserController = require("../../../app/controllers/UserController");
+const limiter = require("../../../app/middleware/limiter");
 
 /**
   * @api {get} get all user for admin

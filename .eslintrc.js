@@ -1,4 +1,5 @@
 module.exports = {
+    "parser": '@typescript-eslint/parser',
     "env": {
         "browser": true,
         "commonjs": true,
@@ -6,7 +7,7 @@ module.exports = {
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:@javascript-eslint/recommended"
     ],
     "overrides": [
     ],
@@ -14,7 +15,8 @@ module.exports = {
         "ecmaVersion": "latest"
     },
     "plugins": [
-        "react"
+        "react",
+        '@typescript-eslint'
     ],
     "rules": {
     }

@@ -1,8 +1,8 @@
-const verifyJWT = require("../../../middleware/verifyJWT");
-const PostStatusController = require("../../../controllers/PostStatusController");
-const imagesUpload = require("../../../middleware/imagesUpload");
-const limiter = require("../../../middleware/limiter");
-const videoUpload = require("../../../middleware/videoUpload");
+const verifyJWT = require("../../../app/middleware/verifyJWT");
+const PostStatusController = require("../../../app/controllers/PostStatusController");
+const imagesUpload = require("../../../app/middleware/imagesUpload");
+const limiter = require("../../../app/middleware/limiter");
+const videoUpload = require("../../../app/middleware/videoUpload");
 const router = require("express").Router();
 
 /**

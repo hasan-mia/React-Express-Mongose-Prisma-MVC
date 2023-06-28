@@ -1,7 +1,7 @@
-const verifyJWT = require("../../../middleware/verifyJWT");
-const ProductController = require("../../../controllers/ProductController");
-const imagesUpload = require("../../../middleware/imagesUpload");
-const limiter = require("../../../middleware/limiter");
+const verifyJWT = require("../../../app/middleware/verifyJWT");
+const ProductController = require("../../../app/controllers/ProductController");
+const imagesUpload = require("../../../app/middleware/imagesUpload");
+const limiter = require("../../../app/middleware/limiter");
 const router = require("express").Router()
 
 /**
